@@ -5,7 +5,7 @@ class TrailFacade
     longitude = coordinates[:results][0][:locations][0][:latLng][:lng]
     trail_data = TrailService.trails(latitude, longitude)
     weather = WeatherService.weather_forecast(latitude, longitude)
-    forecast = weather[:current][:temp].to_s
+    forecast = weather[:current]
     Trail.new(trail_data, location, forecast)
   end
 end
