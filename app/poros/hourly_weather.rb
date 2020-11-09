@@ -18,4 +18,8 @@ class HourlyWeather
   def format_time(unix_time)
     Time.at(unix_time).strftime('%k:%M:%S')
   end
+
+  def format_wind_speed(wind_speed)
+    wind_speed.to_s + ' mph'
+  end
 end
