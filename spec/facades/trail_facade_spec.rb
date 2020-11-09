@@ -11,8 +11,6 @@ RSpec.describe 'Trail Facade' do
     expect(trail.location).to be_a(String)
 
     expect(trail.forecast).to be_a(Hash)
-    expect(trail.forecast.summary).to be_a(String)
-    expect(trail.forecast.temperature).to be_a(String)
 
     expect(trail.trails.first.name).to be_a(String)
     expect(trail.trails.first.summary).to be_a(String)

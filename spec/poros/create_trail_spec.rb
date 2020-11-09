@@ -2,6 +2,7 @@ require "rails_helper"
 
 RSpec.describe CreateTrail do
   it "exists" do
+    location = 'denver,co'
     trail_data = {
         "id": 7006663,
         "name": "Monarch Lake to Crater Lake",
@@ -28,13 +29,13 @@ RSpec.describe CreateTrail do
         "conditionDate": "2020-10-10 21:37:09"
     }
 
-    trail = CreateTrail.new(trail_data)
+    trail = CreateTrail.new(trail_data, location)
 
     expect(trail).to be_a(CreateTrail)
     expect(trail.name).to eq('Monarch Lake to Crater Lake')
     expect(trail.summary).to eq('Gorgeous scenery with waterfalls and wildflowers ending at a breathtaking cirque and glacier lake.')
     expect(trail.difficulty).to eq('blueBlack')
     expect(trail.location).to eq('Granby, Colorado')
-    expect(trail.distance_to_trail).to eq('23.008')
+    expect(trail.distance_to_trail).to eq('85.867')
   end
 end
