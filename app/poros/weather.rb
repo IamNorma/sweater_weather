@@ -1,5 +1,7 @@
 class Weather
-  attr_reader :current, :hourly, :daily
+  attr_reader :current_weather,
+              :hourly_weather,
+              :daily_weather
 
   def initialize(weather_params)
     @current_weather = CurrentWeather.new(weather_params[:current])
