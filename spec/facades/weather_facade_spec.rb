@@ -8,8 +8,8 @@ RSpec.describe 'Weather Facade' do
 
     expect(weather).to be_a(Weather)
     expect(weather.current_weather).to be_a(CurrentWeather)
-    expect(weather.daily_weather).to be_a(DailyWeather)
-    expect(weather.hourly_weather).to be_a(HourlyWeather)
+    expect(weather.daily_weather[0]).to be_a(DailyWeather)
+    expect(weather.hourly_weather[0]).to be_a(HourlyWeather)
 
     expect(weather.current_weather.datetime).to be_a(String)
     expect(weather.current_weather.sunrise).to be_a(String)

@@ -24,6 +24,6 @@ class CurrentWeather
   end
 
   def format_datetime(unix_time)
-    Time.at(unix_time)
+    Time.at(unix_time).strftime('%F %H:%M:%S %z')
   end
 end

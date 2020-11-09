@@ -18,10 +18,10 @@ class DailyWeather
   end
 
   def format_date(unix_time)
-    Time.at(unix_time).strftime('%Y-%m-%d')
+    Time.at(unix_time).strftime('%F')
   end
 
   def format_datetime(unix_time)
-    Time.at(unix_time)
+    Time.at(unix_time).strftime('%F %H:%M:%S %z')
   end
 end
