@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe Trail do
   it "exists" do
-    trail = {
+    trail_data = {
       "location": 'denver,co',
       "forecast": {
         "summary": 'Cloudy with a chance of meatballs',
