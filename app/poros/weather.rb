@@ -4,7 +4,7 @@ class Weather
   def initialize(weather_params)
     @current_weather = CurrentWeather.new(weather_params[:current])
     @hourly_weather = abridged_hours(weather_params[:hourly])
-    @daily_weather = next_five_days(weather_params[:daily])
+    @daily_weather = abridged_days(weather_params[:daily])
   end
 
   def abridged_hours(hourly_weather)
