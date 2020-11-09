@@ -20,4 +20,8 @@ class DailyWeather
   def format_date(unix_time)
     Time.at(unix_time).strftime('%Y-%m-%d')
   end
+
+  def format_datetime(unix_time)
+    Time.at(unix_time)
+  end
 end
