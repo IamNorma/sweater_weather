@@ -1,5 +1,5 @@
 class Trail
   def initialize(trail_params)
-    @argument = argument
+    @trails = nearby_trails(trail_params[:trails])
   end
 end
