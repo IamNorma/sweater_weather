@@ -27,7 +27,7 @@ describe "User" do
     expect(forecast[:data][:attributes][:current_weather]).to have_key(:temperature)
     expect(forecast[:data][:attributes][:current_weather][:temperature]).to be_a(Float)
     expect(forecast[:data][:attributes][:current_weather]).to have_key(:feels_like)
-    expect(forecast[:data][:attributes][:current_weather][:feels_like]).to be_a(String)
+    expect(forecast[:data][:attributes][:current_weather][:feels_like]).to be_a(Float)
     expect(forecast[:data][:attributes][:current_weather]).to have_key(:humidity)
     expect(forecast[:data][:attributes][:current_weather][:humidity]).to be_a(Numeric)
     expect(forecast[:data][:attributes][:current_weather]).to have_key(:uvi)
