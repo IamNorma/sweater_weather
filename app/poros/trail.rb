@@ -1,4 +1,6 @@
 class Trail
+  attr_reader :location, :forecast, :trails
+  
   def initialize(trail_params, location, forecast)
     @location = location
     @forecast = temperature_summary(forecast)
@@ -10,5 +12,11 @@ class Trail
     "summary": forecast[:weather][0][:description],
     "temperature": forecast[:temp].to_s
     }
+  end
+
+  def nearby_trails(trails)
+    trails.map do |trail_data|
+      CreateTrail.new(trail_data)
+    end
   end
 end
