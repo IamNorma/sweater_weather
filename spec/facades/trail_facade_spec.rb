@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'Weather Facade' do
-  it 'returns weather based on location' do
+RSpec.describe 'Trail Facade' do
+  it 'returns trail info based on latitude and longitude' do
     location = 'denver,co'
 
     trail = TrailFacade.fetch_trail_info(location)
