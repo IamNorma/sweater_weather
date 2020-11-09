@@ -12,4 +12,10 @@ class Weather
       HourlyWeather.new(hour_data)
     end
   end
+
+  def abridged_days(daily_weather)
+    daily_weather.first(5).map do |daily_data|
+      DailyWeather.new(daily_data)
+    end
+  end
 end
