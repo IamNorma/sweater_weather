@@ -67,7 +67,7 @@ describe "User" do
     expect(forecast[:data][:attributes][:hourly_weather][0]).to have_key(:wind_speed)
     expect(forecast[:data][:attributes][:hourly_weather][0][:wind_speed]).to be_a(String)
     expect(forecast[:data][:attributes][:hourly_weather][0]).to have_key(:wind_direction)
-    expect(forecast[:data][:attributes][:hourly_weather][0][:wind_direction]).to be_a(Float)
+    expect(forecast[:data][:attributes][:hourly_weather][0][:wind_direction]).to be_a(String)
     expect(forecast[:data][:attributes][:hourly_weather][0]).to have_key(:conditions)
     expect(forecast[:data][:attributes][:hourly_weather][0][:conditions]).to be_a(String)
     expect(forecast[:data][:attributes][:hourly_weather][0]).to have_key(:icon)
