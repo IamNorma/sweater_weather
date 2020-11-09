@@ -2,6 +2,30 @@ require "rails_helper"
 
 RSpec.describe Trail do
   it "exists" do
+    location = "denver,co"
+    forecast = {
+      "dt": 1604903328,
+      "sunrise": 1604922281,
+      "sunset": 1604959159,
+      "temp": 57.36,
+      "feels_like": 57.13,
+      "pressure": 1028,
+      "humidity": 93,
+      "dew_point": 55.36,
+      "uvi": 3.2,
+      "clouds": 40,
+      "visibility": 10000,
+      "wind_speed": 3.36,
+      "wind_deg": 210,
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "scattered clouds",
+          "icon": "03n"
+        }
+      ]
+    }
     trail_data = [
         {
             "id": 7006663,
@@ -30,7 +54,7 @@ RSpec.describe Trail do
         }
       ]
 
-    trail = Trail.new(trail_data)
+    trail = Trail.new(trail_data, location, forecast)
 
     expect(trail).to be_a(Trail)
   end
