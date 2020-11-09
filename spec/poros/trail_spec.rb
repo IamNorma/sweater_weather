@@ -53,9 +53,6 @@ RSpec.describe Trail do
             "conditionDate": "2020-10-10 21:37:09"
         }
       ]
-
-    trail = Trail.new(trail_data, location, forecast)
-
-    expect(trail).to be_a(Trail)
+      
   end
 end
