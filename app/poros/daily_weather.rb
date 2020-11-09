@@ -6,7 +6,7 @@ class DailyWeather
               :min_temp,
               :conditions,
               :icon
-              
+
   def initialize(weather_params)
     @date = format_date(weather_params[:dt])
     @sunrise = format_datetime(weather_params[:sunrise])
@@ -15,5 +15,9 @@ class DailyWeather
     @min_temp = weather_params[:temp][:min]
     @conditions = weather_params[:weather][0][:description]
     @icon = weather_params[:weather][0][:icon]
+  end
+
+  def format_date(unix_time)
+    Time.at(unix_time).strftime('%Y-%m-%d')
   end
 end
