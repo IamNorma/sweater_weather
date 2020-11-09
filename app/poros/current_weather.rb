@@ -22,4 +22,8 @@ class CurrentWeather
     @conditions = weather_params[:weather][0][:description]
     @icon = weather_params[:weather][0][:icon]
   end
+
+  def format_time(unix_time)
+    Time.at(unix_time)
+  end
 end
