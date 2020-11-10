@@ -2,8 +2,9 @@ class ImageService
   def self.search(location)
     response = conn.get('/search/photos') do |req|
       req.params['query'] = location
+      req.params['per_page'] = 1
     end
-    JSON.parse(response.body, symbolize_names: true)
+    json = JSON.parse(response.body, symbolize_names: true)
   end
 
   private
