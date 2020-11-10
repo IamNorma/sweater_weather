@@ -28,7 +28,7 @@ describe "User registration" do
 
     expect(json[:data][:type]).to be_a(String)
     expect(json[:data][:type]).to eq('users')
-    expect(json[:data][:id]).to be_an(Integer)
+    expect(json[:data][:id]).to be_a(String)
     expect(json[:data][:attributes]).to be_a(Hash)
 
     expect(json[:data][:attributes]).to have_key(:email)
