@@ -2,6 +2,7 @@ require "rails_helper"
 
 RSpec.describe Background do
   it "exists" do
+    location = 'denver,co'
     image_data = {
       "id": "eOLpJytrbsQ",
       "created_at": "2014-11-18T14:35:36-05:00",
@@ -48,7 +49,7 @@ RSpec.describe Background do
       }
     }
 
-    background = Background.new(image_data)
+    background = Background.new(image_data, location)
 
     expect(background.width).to eq(4000)
     expect(background.height).to eq(3000)

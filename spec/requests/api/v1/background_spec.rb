@@ -16,6 +16,8 @@ describe "Backgrounds" do
 
     expect(json[:data][:attributes]).to be_a(Hash)
 
+    expect(json[:data][:attributes]).to have_key(:location)
+    expect(json[:data][:attributes][:location]).to be_a(String)
     expect(json[:data][:attributes]).to have_key(:width)
     expect(json[:data][:attributes][:width]).to be_an(Integer)
     expect(json[:data][:attributes]).to have_key(:height)

@@ -8,6 +8,7 @@ RSpec.describe 'Background Facade' do
 
     expect(background).to be_a(Background)
 
+    expect(background.location).to be_a(String)
     expect(background.width).to be_an(Integer)
     expect(background.height).to be_an(Integer)
     expect(background.color).to be_a(String)

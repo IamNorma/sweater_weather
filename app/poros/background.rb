@@ -1,5 +1,6 @@
 class Background
-  attr_reader :width,
+  attr_reader :location,
+              :width,
               :height,
               :color,
               :description,
@@ -9,8 +10,9 @@ class Background
               :author_twitter,
               :raw_image_url,
               :regular_image_url
-              
-  def initialize(image_params)
+
+  def initialize(image_params, location)
+    @location = location
     @width = image_params[:width]
     @height = image_params[:height]
     @color = image_params[:color]
