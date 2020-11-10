@@ -29,7 +29,6 @@ RSpec.describe ImageService do
     expect(json[:results][0][:color]).to be_a(String)
     expect(json[:results][0][:blur_hash]).to be_a(String)
     expect(json[:results][0][:likes]).to be_a(Integer)
-    expect(json[:results][0][:liked_by_user]).to be_a(Boolean)
     expect(json[:results][0][:description]).to be_a(String)
     expect(json[:results][0][:user]).to be_a(Hash)
     expect(json[:results][0][:urls]).to be_a(Hash)
