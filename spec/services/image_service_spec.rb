@@ -38,11 +38,15 @@ RSpec.describe ImageService do
     expect(json[:results][0][:user]).to have_key(:name)
     expect(json[:results][0][:user]).to have_key(:instagram_username)
     expect(json[:results][0][:user]).to have_key(:twitter_username)
+    expect(json[:results][0][:user]).to have_key(:links)
+    expect(json[:results][0][:user][:links]).to have_key(:html)
 
     expect(json[:results][0][:user][:username]).to be_a(String)
     expect(json[:results][0][:user][:name]).to be_a(String)
     expect(json[:results][0][:user][:instagram_username]).to be_a(String)
     expect(json[:results][0][:user][:twitter_username]).to be_a(String)
+    expect(json[:results][0][:user][:links]).to be_a(Hash)
+    expect(json[:results][0][:user][:links][:html]).to be_a(String)
 
     expect(json[:results][0][:urls]).to have_key(:raw)
     expect(json[:results][0][:urls]).to have_key(:regular)
