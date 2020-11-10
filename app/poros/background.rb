@@ -1,4 +1,15 @@
 class Background
+  attr_reader :width,
+              :height,
+              :color,
+              :description,
+              :author_name,
+              :splash_profile,
+              :author_instagram,
+              :author_twitter,
+              :raw_image_url,
+              :regular_image_url
+              
   def initialize(image_params)
     @width = image_params[:width]
     @height = image_params[:height]
