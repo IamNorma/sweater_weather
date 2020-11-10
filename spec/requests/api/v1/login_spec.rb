@@ -42,4 +42,32 @@ describe "User login" do
     expect(json[:data][:attributes]).to_not have_key(:password)
     expect(json[:data][:attributes]).to_not have_key(:password_confirmation)
   end
+
+  it "will give an error if email is incorrect" do
+    params = {
+      "email": "whateverrrr@example.com",
+      "password": "password",
+    }
+
+    post '/api/v1/sessions', headers: @headers, params: JSON.generate(params)
+
+    json = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response.status).to eq(400)
+    expect(json[:error]).to eq("The email and password provided did not match our records. Please try again.")
+  end
+
+  it "will give an error if password is incorrect" do
+    params = {
+      "email": "whatever@example.com",
+      "password": "passworddddd",
+    }
+
+    post '/api/v1/sessions', headers: @headers, params: JSON.generate(params)
+
+    json = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response.status).to eq(400)
+    expect(json[:error]).to eq("The email and password provided did not match our records. Please try again.")
+  end
 end
