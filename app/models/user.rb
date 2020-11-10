@@ -10,10 +10,6 @@ class User < ApplicationRecord
   has_secure_password
 
   def set_api_key
-    self.api_key = generate_api_key
-  end
-
-  def generate_api_key
-    SecureRandom.base58(28)
+    self.api_key = SecureRandom.base58(28)
   end
 end
