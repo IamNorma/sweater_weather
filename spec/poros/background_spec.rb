@@ -55,6 +55,7 @@ RSpec.describe Background do
     expect(background.color).to eq('#A7A2A1')
     expect(background.description).to eq('A man drinking a coffee.')
     expect(background.author_name).to eq('Jeff Sheldon')
+    expect(background.splash_profile).to eq('http://unsplash.com/@ugmonk')
     expect(background.author_instagram).to eq('instantgrammer')
     expect(background.author_twitter).to eq('ugmonk')
     expect(background.raw_image_url).to eq('https://images.unsplash.com/photo-1416339306562-f3d12fefd36f')

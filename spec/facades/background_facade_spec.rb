@@ -13,6 +13,7 @@ RSpec.describe 'Background Facade' do
     expect(background.color).to be_a(String)
     expect(background.description).to be_a(String)
     expect(background.author_name).to be_a(String)
+    expect(background.splash_profile).to be_a(String)
     expect(background.author_instagram).to be_a(String)
     expect(background.author_twitter).to be_a(String)
     expect(background.raw_image_url).to be_a(String)
