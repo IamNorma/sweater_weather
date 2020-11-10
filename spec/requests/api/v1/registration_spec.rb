@@ -56,7 +56,7 @@ describe "User registration" do
 
     json = JSON.parse(response.body, symbolize_names: true)
 
-    expect(response.status).to eq(401)
+    expect(response.status).to eq(400)
     expect(json[:error]).to eq("Email can't be blank")
   end
 
@@ -78,7 +78,7 @@ describe "User registration" do
 
     json = JSON.parse(response.body, symbolize_names: true)
 
-    expect(response.status).to eq(401)
+    expect(response.status).to eq(400)
     expect(json[:error]).to eq("Email has already been taken")
   end
 
@@ -98,7 +98,7 @@ describe "User registration" do
 
     json = JSON.parse(response.body, symbolize_names: true)
 
-    expect(response.status).to eq(401)
+    expect(response.status).to eq(400)
     expect(json[:error]).to eq("Password confirmation doesn't match Password")
   end
 end
