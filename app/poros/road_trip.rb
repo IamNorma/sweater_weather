@@ -5,20 +5,12 @@ class RoadTrip
               :temperature,
               :conditions
 
-  def initialize(roadtrip_params, forecast)  
-    @start_city = find_start_city(roadtrip_params[:route][:locations])
-    @end_city = find_end_city(roadtrip_params[:route][:locations])
+  def initialize(roadtrip_params, forecast, origin, destination)
+    @start_city = origin
+    @end_city = destination
     @travel_time = format_time(roadtrip_params[:route][:realTime])
     @temperature = find_temp(forecast, roadtrip_params[:route][:realTime])
     @conditions = find_conditions(forecast, roadtrip_params[:route][:realTime])
-  end
-
-  def find_start_city(data)
-    data[0][:adminArea5] + ', ' + data[0][:adminArea3]
-  end
-
-  def find_end_city(data)
-    data[1][:adminArea5] + ', ' + data[1][:adminArea3]
   end
 
   def format_time(time)
