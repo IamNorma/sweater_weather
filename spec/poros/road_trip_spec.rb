@@ -2,8 +2,6 @@ require "rails_helper"
 
 RSpec.describe RoadTrip do
   it "exists" do
-    origin = 'denver,co'
-    destination = 'pueblo,co'
     roadtrip_data = {
       "route": {
         "distance": 111.38,
@@ -159,8 +157,8 @@ RSpec.describe RoadTrip do
     roadtrip = RoadTrip.new(roadtrip_data, forecast)
 
     expect(roadtrip).to be_a(RoadTrip)
-    expect(roadtrip.start_city).to eq('denver,co')
-    expect(roadtrip.end_city).to eq('pueblo,co')
+    expect(roadtrip.start_city).to eq('Denver, CO')
+    expect(roadtrip.end_city).to eq('Pueblo, CO')
     expect(roadtrip.travel_time).to eq('1h45m')
     expect(roadtrip.temperature).to eq(35.31)
     expect(roadtrip.conditions).to eq('clear sky')
