@@ -14,17 +14,29 @@ class RoadTrip
   end
 
   def format_time(time)
-    hour = (time / 3600)
-    minutes = (time / 60) % 60
-    "#{hour}h#{minutes}m"
+    if time.present?
+      hour = (time / 3600)
+      minutes = (time / 60) % 60
+      "#{hour}h#{minutes}m"
+    else
+      'impossible route'
+    end
   end
 
   def find_temp(forecast_data, travel_time)
-    nearest_hour(forecast_data, travel_time)[:temp]
+    if travel_time.present?
+      nearest_hour(forecast_data, travel_time)[:temp]
+    else
+      nil
+    end
   end
 
   def find_conditions(forecast_data, travel_time)
-    nearest_hour(forecast_data, travel_time)[:weather][0][:description]
+    if travel_time.present?
+      nearest_hour(forecast_data, travel_time)[:weather][0][:description]
+    else
+      nil
+    end 
   end
 
   def nearest_hour(forecast_data, travel_time)
