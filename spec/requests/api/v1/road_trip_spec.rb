@@ -59,4 +59,19 @@ describe "Road Trip API" do
     expect(response.status).to eq(401)
     expect(json[:error]).to eq("Valid API key required")
   end
+
+  it "returns error if wrong API is given" do
+    params = {
+      "origin": "Denver,CO",
+      "destination": "Pueblo,CO",
+      "api_key": "123456asdfjkld"
+    }
+
+    post '/api/v1/road_trip', headers: @headers, params: JSON.generate(params)
+
+    json = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response.status).to eq(401)
+    expect(json[:error]).to eq("Valid API key required")
+  end
 end
