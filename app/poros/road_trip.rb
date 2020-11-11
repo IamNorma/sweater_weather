@@ -1,3 +1,3 @@
 class RoadTrip
 
-end 
+end
