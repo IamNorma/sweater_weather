@@ -41,10 +41,8 @@ describe "Road Trip API" do
 
     expect(json[:data][:attributes][:weather_at_eta]).to have_key(:temperature)
     expect(json[:data][:attributes][:weather_at_eta]).to have_key(:conditions)
-    expect(json[:data][:attributes][:weather_at_eta]).to have_key(:note)
 
-    expect(json[:data][:attributes][:weather_at_eta][:temperature]).to be_a(Numeric)
-    expect(json[:data][:attributes][:weather_at_eta][:temperature]).to be_a(String)
-    expect(json[:data][:attributes][:weather_at_eta][:temperature]).to be_a(String).or(eq(nil))
+    expect(json[:data][:attributes][:weather_at_eta][:temperature]).to be_a(Numeric).or(eq(nil))
+    expect(json[:data][:attributes][:weather_at_eta][:conditions]).to be_a(String).or(eq(nil))
   end
 end
