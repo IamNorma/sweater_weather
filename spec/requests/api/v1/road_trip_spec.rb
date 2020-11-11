@@ -45,4 +45,18 @@ describe "Road Trip API" do
     expect(json[:data][:attributes][:weather_at_eta][:temperature]).to be_a(Numeric).or(eq(nil))
     expect(json[:data][:attributes][:weather_at_eta][:conditions]).to be_a(String).or(eq(nil))
   end
+
+  it "returns error if no API is given" do
+    params = {
+      "origin": "Denver,CO",
+      "destination": "Pueblo,CO",
+    }
+
+    post '/api/v1/road_trip', headers: @headers, params: JSON.generate(params)
+
+    json = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response.status).to eq(401)
+    expect(json[:error]).to eq("Valid API key required")
+  end
 end
