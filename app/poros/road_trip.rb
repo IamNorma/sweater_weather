@@ -20,4 +20,10 @@ class RoadTrip
   def find_end_city(data)
     data[1][:adminArea5] + ', ' + data[1][:adminArea3]
   end
+
+  def format_time(time)
+    hour = (time / 3600)
+    minutes = (time / 60) % 60
+    "#{hour}h#{minutes}m"
+  end
 end
