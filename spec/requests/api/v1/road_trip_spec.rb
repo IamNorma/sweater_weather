@@ -46,6 +46,31 @@ describe "Road Trip API" do
     expect(json[:data][:attributes][:weather_at_eta][:conditions]).to be_a(String).or(eq(nil))
   end
 
+  it "can retrieve roadtrip info and should not include uneccessary data" do
+    params = {
+      "origin": "Denver,CO",
+      "destination": "Pueblo,CO",
+      "api_key": @user.api_key
+    }
+
+    post '/api/v1/road_trip', headers: @headers, params: JSON.generate(params)
+
+    expect(response).to be_successful
+
+    json = JSON.parse(response.body, symbolize_names: true)
+
+    expect(json[:data]).to be_a(Hash)
+
+    expect(json[:data][:attributes]).to_not have_key(:hasTollRoad)
+    expect(json[:data][:attributes]).to_not have_key(:hasBridge)
+    expect(json[:data][:attributes]).to_not have_key(:boundingBox)
+    expect(json[:data][:attributes]).to_not have_key(:hasTimedRestriction)
+    expect(json[:data][:attributes]).to_not have_key(:hasTunnel)
+    expect(json[:data][:attributes]).to_not have_key(:hasHighway)
+    expect(json[:data][:attributes]).to_not have_key(:formattedTime)
+    expect(json[:data][:attributes]).to_not have_key(:legs)
+  end
+
   it "returns error if no API is given" do
     params = {
       "origin": "Denver,CO",
@@ -148,4 +173,5 @@ describe "Road Trip API" do
     expect(json[:data][:attributes][:weather_at_eta][:temperature]).to eq(nil)
     expect(json[:data][:attributes][:weather_at_eta][:conditions]).to eq(nil)
   end
+
 end
