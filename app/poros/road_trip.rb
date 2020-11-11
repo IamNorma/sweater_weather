@@ -28,17 +28,14 @@ class RoadTrip
   end
 
   def find_temp(forecast_data, travel_time)
-    current_unix_time = forecast_data[:current][:dt] + travel_time
-    difference = forecast_data[:hourly].map do |hour|
-      (current_unix_time - hour[:dt]).abs
-    end.min
-    nearest_hour = forecast_data[:hourly].find do |hour|
-      (current_unix_time - hour[:dt]).abs == difference
-    end
-    nearest_hour[:temp]
+    nearest_hour(forecast_data, travel_time)[:temp]
   end
 
   def find_conditions(forecast_data, travel_time)
+    nearest_hour(forecast_data, travel_time)[:weather][0][:description]
+  end
+
+  def nearest_hour(forecast_data, travel_time)
     current_unix_time = forecast_data[:current][:dt] + travel_time
     difference = forecast_data[:hourly].map do |hour|
       (current_unix_time - hour[:dt]).abs
@@ -46,6 +43,5 @@ class RoadTrip
     nearest_hour = forecast_data[:hourly].find do |hour|
       (current_unix_time - hour[:dt]).abs == difference
     end
-    nearest_hour[:weather][0][:description]
   end
 end
