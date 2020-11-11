@@ -5,62 +5,64 @@ RSpec.describe RoadTrip do
     origin = 'denver,co'
     destination = 'pueblo,co'
     roadtrip_data = {
-      "distance": 111.38,
-      "realTime": 6323,
-      "locations": [
-        {
-          "dragPoint": false,
-          "displayLatLng": {
-            "lng": -104.984856,
-            "lat": 39.738453
+      "route": {
+        "distance": 111.38,
+        "realTime": 6323,
+        "locations": [
+          {
+            "dragPoint": false,
+            "displayLatLng": {
+              "lng": -104.984856,
+              "lat": 39.738453
+            },
+            "adminArea4": "Denver County",
+            "adminArea5": "Denver",
+            "postalCode": "",
+            "adminArea1": "US",
+            "adminArea3": "CO",
+            "type": "s",
+            "sideOfStreet": "N",
+            "geocodeQualityCode": "A5XAX",
+            "adminArea4Type": "County",
+            "linkId": 35589410,
+            "street": "",
+            "adminArea5Type": "City",
+            "geocodeQuality": "CITY",
+            "adminArea1Type": "Country",
+            "adminArea3Type": "State",
+            "latLng": {
+              "lng": -104.984853,
+              "lat": 39.738453
+            }
           },
-          "adminArea4": "Denver County",
-          "adminArea5": "Denver",
-          "postalCode": "",
-          "adminArea1": "US",
-          "adminArea3": "CO",
-          "type": "s",
-          "sideOfStreet": "N",
-          "geocodeQualityCode": "A5XAX",
-          "adminArea4Type": "County",
-          "linkId": 35589410,
-          "street": "",
-          "adminArea5Type": "City",
-          "geocodeQuality": "CITY",
-          "adminArea1Type": "Country",
-          "adminArea3Type": "State",
-          "latLng": {
-            "lng": -104.984853,
-            "lat": 39.738453
+          {
+            "dragPoint": false,
+            "displayLatLng": {
+              "lng": -104.610413,
+              "lat": 38.265427
+            },
+            "adminArea4": "Pueblo County",
+            "adminArea5": "Pueblo",
+            "postalCode": "",
+            "adminArea1": "US",
+            "adminArea3": "CO",
+            "type": "s",
+            "sideOfStreet": "N",
+            "geocodeQualityCode": "A5XAX",
+            "adminArea4Type": "County",
+            "linkId": 48374268,
+            "street": "",
+            "adminArea5Type": "City",
+            "geocodeQuality": "CITY",
+            "adminArea1Type": "Country",
+            "adminArea3Type": "State",
+            "latLng": {
+              "lng": -104.610415,
+              "lat": 38.265425
+            }
           }
-        },
-        {
-          "dragPoint": false,
-          "displayLatLng": {
-            "lng": -104.610413,
-            "lat": 38.265427
-          },
-          "adminArea4": "Pueblo County",
-          "adminArea5": "Pueblo",
-          "postalCode": "",
-          "adminArea1": "US",
-          "adminArea3": "CO",
-          "type": "s",
-          "sideOfStreet": "N",
-          "geocodeQualityCode": "A5XAX",
-          "adminArea4Type": "County",
-          "linkId": 48374268,
-          "street": "",
-          "adminArea5Type": "City",
-          "geocodeQuality": "CITY",
-          "adminArea1Type": "Country",
-          "adminArea3Type": "State",
-          "latLng": {
-            "lng": -104.610415,
-            "lat": 38.265425
-          }
-        }
-      ]
+        ]
+      }
     }
     forecast = {
       "current": {
