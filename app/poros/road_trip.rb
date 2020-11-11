@@ -16,4 +16,8 @@ class RoadTrip
   def find_start_city(data)
     data[0][:adminArea5] + ', ' + data[0][:adminArea3]
   end
+
+  def find_end_city(data)
+    data[1][:adminArea5] + ', ' + data[1][:adminArea3]
+  end
 end
