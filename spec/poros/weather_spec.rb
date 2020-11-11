@@ -96,5 +96,35 @@ RSpec.describe Weather do
     weather = Weather.new(weather_data)
 
     expect(weather).to be_a(Weather)
+
+    expect(weather.current_weather).to be_a(CurrentWeather)
+    expect(weather.daily_weather[0]).to be_a(DailyWeather)
+    expect(weather.hourly_weather[0]).to be_a(HourlyWeather)
+
+    expect(weather.current_weather.datetime).to eq('2020-11-08 23:28:48 -0700')
+    expect(weather.current_weather.sunrise).to eq('2020-11-09 04:44:41 -0700')
+    expect(weather.current_weather.sunset).to eq('2020-11-09 14:59:19 -0700')
+    expect(weather.current_weather.temperature).to eq(57.36)
+    expect(weather.current_weather.feels_like).to eq(57.13)
+    expect(weather.current_weather.humidity).to eq(93)
+    expect(weather.current_weather.uvi).to eq(3.2)
+    expect(weather.current_weather.visibility).to eq(10000)
+    expect(weather.current_weather.conditions).to eq('scattered clouds')
+    expect(weather.current_weather.icon).to eq('03n')
+
+    expect(weather.daily_weather.first.date).to eq('2020-11-16')
+    expect(weather.daily_weather.first.sunrise).to eq('2020-11-16 04:52:32 -0700')
+    expect(weather.daily_weather.first.sunset).to eq('2020-11-16 14:53:39 -0700')
+    expect(weather.daily_weather.first.max_temp).to eq(67.14)
+    expect(weather.daily_weather.first.min_temp).to eq(56.39)
+    expect(weather.daily_weather.first.conditions).to eq('moderate rain')
+    expect(weather.daily_weather.first.icon).to eq('10d')
+
+    expect(weather.hourly_weather.first.time).to eq('22:00:00')
+    expect(weather.hourly_weather.first.temperature).to eq(65.23)
+    expect(weather.hourly_weather.first.wind_speed).to eq('8.68 mph')
+    expect(weather.hourly_weather.first.wind_direction).to eq('S')
+    expect(weather.hourly_weather.first.conditions).to eq('clear sky')
+    expect(weather.hourly_weather.first.icon).to eq('01n')
   end
 end
