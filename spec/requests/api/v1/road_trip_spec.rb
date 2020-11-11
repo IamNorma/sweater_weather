@@ -13,7 +13,7 @@ describe "Road Trip API" do
       "api_key": "jgn983hy48thw9begh98h4539h4"
     }
 
-    post '/api/v1/road', headers: headers, params: JSON.generate(params)
+    post '/api/v1/road_trip', headers: headers, params: JSON.generate(params)
 
     expect(response).to be_successful
 
