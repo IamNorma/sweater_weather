@@ -10,7 +10,7 @@ class RoadTrip
     @end_city = find_end_city(roadtrip_params[:route][:locations])
     @travel_time = format_time(roadtrip_params[:route][:realTime])
     @temperature = find_temp(forecast, roadtrip_params[:route][:realTime])
-    @conditions = find_conditions(forecast)
+    @conditions = find_conditions(forecast, roadtrip_params[:route][:realTime])
   end
 
   def find_start_city(data)
@@ -36,5 +36,16 @@ class RoadTrip
       (current_unix_time - hour[:dt]).abs == difference
     end
     nearest_hour[:temp]
+  end
+
+  def find_conditions(forecast_data, travel_time)
+    current_unix_time = forecast_data[:current][:dt] + travel_time
+    difference = forecast_data[:hourly].map do |hour|
+      (current_unix_time - hour[:dt]).abs
+    end.min
+    nearest_hour = forecast_data[:hourly].find do |hour|
+      (current_unix_time - hour[:dt]).abs == difference
+    end
+    nearest_hour[:weather][0][:description]
   end
 end
