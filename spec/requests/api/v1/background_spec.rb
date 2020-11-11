@@ -43,4 +43,25 @@ describe "Backgrounds" do
     expect(json[:data][:attributes][:urls]).to have_key(:regular)
     expect(json[:data][:attributes][:urls][:regular]).to be_a(String)
   end
+
+  it "can retrieve background image info and should not include uneccessary data" do
+
+    get '/api/v1/backgrounds?location=denver,co'
+
+    expect(response).to be_successful
+
+    json = JSON.parse(response.body, symbolize_names: true)
+
+    expect(json[:data]).to be_a(Hash)
+
+    expect(json[:data][:type]).to eq('background')
+    expect(json[:data]).to have_key(:attributes)
+
+    expect(json[:data][:attributes]).to be_a(Hash)
+
+    expect(json[:data][:attributes]).to_not have_key(:blur_hash)
+    expect(json[:data][:attributes]).to_not have_key(:likes)
+    expect(json[:data][:attributes]).to_not have_key(:liked_by_user)
+    expect(json[:data][:attributes]).to_not have_key(:current_user_collections)
+  end
 end
