@@ -11,7 +11,7 @@ jobs:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
           PGUSER: sweater_weather
-      - image: postgres:12.3
+      - image: postgres:9.5
         environment:
           POSTGRES_HOST_AUTH_METHOD: trust
     steps:
