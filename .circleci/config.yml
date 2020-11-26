@@ -10,7 +10,7 @@ jobs:
         environment:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
-          PGUSER: sweater_weather
+          PGUSER: root
       - image: postgres:12.3
         environment:
           POSTGRES_HOST_AUTH_METHOD: trust
