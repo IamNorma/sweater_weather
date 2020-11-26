@@ -4,8 +4,34 @@ orbs:
 
 jobs:
   build:
+    working_directory: ~/sweater_weather
     docker:
-      - image: circleci/ruby:2.5.3-stretch-node
+      - image: circleci/ruby:2.5.3
+      environment:
+        RAILS_ENV: test
+        PGHOST: localhost
+        PGUSER: sweater_weather
+      - image: postgres:12
+        environment:
+          POSTGRES_USER: sweater_weather
+          POSTGRES_DB: sweater_weather_test
+          POSTGRES_PASSWORD: ""
     steps:
       - checkout
-      - ruby/install-deps
+      - type: cache-restore
+        name: Restore bundle cache
+        key: sweater_weather-{{ checksum "Gemfile.lock" }}
+
+      - run: bundle install --path vendor/bundle
+
+      - type: cache-save
+        name: Store bundle cache
+        key: sweater_weather-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
+
+      - run: dockerize -wait tcp://localhost:3000 -timeout 1m
+
+      - run: bundle install
+      - run: bundle exec rake db:setup
+      - run: bundle exec rspec
