@@ -13,9 +13,7 @@ jobs:
           PGUSER: sweater_weather
       - image: postgres:12.3
         environment:
-          POSTGRES_USER: sweater_weather
-          POSTGRES_DB: sweater_weather_test
-          POSTGRES_PASSWORD: ""
+          POSTGRES_HOST_AUTH_METHOD: trust
     steps:
       - checkout
       - run: dockerize -wait tcp://localhost:3000 -timeout 1m
