@@ -16,7 +16,11 @@ jobs:
           POSTGRES_HOST_AUTH_METHOD: trust
     steps:
       - checkout
-      - run: bundle install
+      - run:
+          name: install dependencies
+          command: |
+            gem update --system
+            gem install bundler
       - run: dockerize -wait tcp://localhost:3000 -timeout 1m
       - run: bundle exec rake db:setup
       - run: bundle exec rspec
