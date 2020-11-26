@@ -6,11 +6,11 @@ jobs:
   build:
     working_directory: ~/sweater_weather
     docker:
-      - image: circleci/ruby:2.5.3
-      environment:
-        RAILS_ENV: test
-        PGHOST: localhost
-        PGUSER: sweater_weather
+      - image: circleci/ruby:2.5.3-stretch
+        environment:
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: sweater_weather
       - image: postgres:12
         environment:
           POSTGRES_USER: sweater_weather
