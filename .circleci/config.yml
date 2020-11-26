@@ -11,7 +11,7 @@ jobs:
           RAILS_ENV: test
           PGHOST: localhost
           PGUSER: sweater_weather
-      - image: postgres:12
+      - image: postgres:12.3
         environment:
           POSTGRES_USER: sweater_weather
           POSTGRES_DB: sweater_weather_test
