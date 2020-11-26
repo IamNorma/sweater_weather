@@ -10,7 +10,7 @@ jobs:
         environment:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
-          PGUSER: root
+          PGUSER: sweater_weather
       - image: postgres:12.3
         environment:
           POSTGRES_HOST_AUTH_METHOD: trust
@@ -23,6 +23,9 @@ jobs:
             gem install bundler
       - run: bundle install
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:migrate
+      - run:
+          name: Database Setup
+          command: |
+            bundle exec rake db:create
+            bundle exec rake db:migrate
       - run: bundle exec rspec
