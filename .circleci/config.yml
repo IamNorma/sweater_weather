@@ -9,13 +9,13 @@ jobs:
       - image: circleci/ruby:2.5.3-stretch
         environment:
           RAILS_ENV: test
-          PGHOST: localhost
+          PGHOST: 127.0.0.1 3000
           PGUSER: sweater_weather
       - image: postgres:12.3
         environment:
           POSTGRES_HOST_AUTH_METHOD: trust
     steps:
-      - checkout 
+      - checkout
       - run: dockerize -wait tcp://localhost:3000 -timeout 1m
       - run: bundle install
       - run: bundle exec rake db:setup
