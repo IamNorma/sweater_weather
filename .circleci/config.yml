@@ -13,7 +13,9 @@ jobs:
           PGUSER: sweater_weather
       - image: postgres:12.3
         environment:
-          POSTGRES_HOST_AUTH_METHOD: trust
+          POSTGRES_USER: sweater_weather
+          POSTGRES_DB: sweater_weather_test
+          POSTGRESS_PASSWORD: ""
     steps:
       - checkout
       - run:
