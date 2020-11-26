@@ -8,11 +8,13 @@ jobs:
     docker:
       - image: circleci/ruby:2.5.3-stretch
         environment:
+          TZ: "America/Denver"
           RAILS_ENV: test
           PGHOST: 127.0.0.1
           PGUSER: sweater_weather
       - image: postgres:12.3
         environment:
+          TZ: "America/Denver"
           POSTGRES_USER: sweater_weather
           POSTGRES_DB: sweater_weather_test
           POSTGRES_HOST_AUTH_METHOD: trust
@@ -30,4 +32,4 @@ jobs:
           command: |
             bundle exec rake db:create
             bundle exec rake db:migrate
-      - run: bundle exec rspec 
+      - run: bundle exec rspec
