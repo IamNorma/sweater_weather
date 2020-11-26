@@ -21,6 +21,6 @@ jobs:
           command: |
             gem update --system
             gem install bundler
-      - run: dockerize -wait tcp://localhost:3000 -timeout 1m
+      - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: bundle exec rake db:setup
       - run: bundle exec rspec
